@@ -129,34 +129,37 @@ namespace Student_System
         private void btnFind_Click(object sender, EventArgs e)
         {
             //buscar estudiante por ID
-            int id = Convert.ToInt32(textBoxID.Text);
-            MySqlCommand command = new MySqlCommand("SELECT `id`, `first_name`, `last_name`, `birthdate`, `gender`, `phone`, `address`, `picture` FROM `student` WHERE `id` ="+id);
-
-            DataTable table = student.getStudents(command);
-
-            if (table.Rows.Count > 0)
+            try
             {
-                textBoxFname.Text = table.Rows[0]["first_name"].ToString();
-                textBoxLname.Text = table.Rows[0]["last_name"].ToString();
-                maskedTextBoxPhone.Text = table.Rows[0]["phone"].ToString();
-                textBoxAddress.Text = table.Rows[0]["address"].ToString();
-                dateTimePicker1.Value = (DateTime)table.Rows[0]["birthdate"];
+                int id = Convert.ToInt32(textBoxID.Text);
+                MySqlCommand command = new MySqlCommand("SELECT `id`, `first_name`, `last_name`, `birthdate`, `gender`, `phone`, `address`, `picture` FROM `student` WHERE `id` =" + id);
 
-                //genero
-                if (table.Rows[0]["gender"].ToString() == "Female")
+                DataTable table = student.getStudents(command);
+
+                if (table.Rows.Count > 0)
                 {
-                    radioButtonFemale.Checked = true;
-                }
-                else
-                {
-                    radioButtonMale.Checked = true;
-                }
+                    textBoxFname.Text = table.Rows[0]["first_name"].ToString();
+                    textBoxLname.Text = table.Rows[0]["last_name"].ToString();
+                    maskedTextBoxPhone.Text = table.Rows[0]["phone"].ToString();
+                    textBoxAddress.Text = table.Rows[0]["address"].ToString();
+                    dateTimePicker1.Value = (DateTime)table.Rows[0]["birthdate"];
 
-                //image
-                byte[] pic = (byte[])table.Rows[0]["picture"];
-                MemoryStream picture = new MemoryStream(pic);
-                pictureBoxStudent.Image = Image.FromStream(picture);
+                    //genero
+                    if (table.Rows[0]["gender"].ToString() == "Female")
+                    {
+                        radioButtonFemale.Checked = true;
+                    }
+                    else
+                    {
+                        radioButtonMale.Checked = true;
+                    }
 
+                    //image
+                    byte[] pic = (byte[])table.Rows[0]["picture"];
+                    MemoryStream picture = new MemoryStream(pic);
+                    pictureBoxStudent.Image = Image.FromStream(picture);
+
+                }
             }
         }
 
@@ -168,6 +171,20 @@ namespace Student_System
         private void UpdateDeleteStudentForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //solo permitir numeros en textBoxID
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

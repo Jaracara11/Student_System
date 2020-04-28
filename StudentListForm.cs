@@ -63,7 +63,15 @@ namespace Student_System
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //refrescar datagrid
+            //refrescar datagridview
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `student`");
+            dataGridView1.ReadOnly = true;
+            DataGridViewImageColumn picCol = new DataGridViewImageColumn();
+            dataGridView1.RowTemplate.Height = 60;
+            dataGridView1.DataSource = student.getStudents(command);
+            picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
+            picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dataGridView1.AllowUserToAddRows = false;
         }
 
     }

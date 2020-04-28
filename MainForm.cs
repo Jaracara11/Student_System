@@ -36,7 +36,8 @@ namespace Student_System
 
         private void editRemoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            UpdateDeleteStudentForm upDelStdF = new UpdateDeleteStudentForm();
+            upDelStdF.Show(this);
         }
 
         private void manageStudentsFormToolStripMenuItem_Click(object sender, EventArgs e)
