@@ -52,78 +52,93 @@ namespace Student_System
 
         public void btnEdit_Click(object sender, EventArgs e)
         {
-            //edit estudiante seleccionado
-            int id = Convert.ToInt32(textBoxID.Text);
-            string fname = textBoxFname.Text;
-            string lname = textBoxLname.Text;
-            DateTime bdate = dateTimePicker1.Value;
-            string phone = maskedTextBoxPhone.Text;
-            string address = textBoxAddress.Text;
-            string gender = "Male";
-
-            if (radioButtonFemale.Checked)
+            //editar estudiante seleccionado
+            try
             {
-                gender = "Female";
-            }
+                int id = Convert.ToInt32(textBoxID.Text);
+                string fname = textBoxFname.Text;
+                string lname = textBoxLname.Text;
+                DateTime bdate = dateTimePicker1.Value;
+                string phone = maskedTextBoxPhone.Text;
+                string address = textBoxAddress.Text;
+                string gender = "Male";
 
-            MemoryStream pic = new MemoryStream();
-
-            //la edad del estudiante debe ser entre 10 y 100
-            int born_year = dateTimePicker1.Value.Year;
-            int this_year = DateTime.Now.Year;
-
-            if ((this_year - born_year) < 10)
-            {
-                MessageBox.Show("The student age most be over 10", "Invalid birthdate", MessageBoxButtons.OK);
-            }
-            else if ((this_year - born_year) >= 100)
-            {
-                MessageBox.Show("The student age most be below 100", "Invalid birthdate", MessageBoxButtons.OK);
-            }
-            else if (verifyData())
-            {
-                pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
-
-                if (student.updateStudent(id, fname, lname, bdate, phone, gender, address, pic))
+                if (radioButtonFemale.Checked)
                 {
-                    MessageBox.Show("Student Information Updated", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    gender = "Female";
+                }
+
+                MemoryStream pic = new MemoryStream();
+
+                //la edad del estudiante debe ser entre 10 y 100
+                int born_year = dateTimePicker1.Value.Year;
+                int this_year = DateTime.Now.Year;
+
+                if ((this_year - born_year) < 10)
+                {
+                    MessageBox.Show("The student age most be over 10", "Invalid birthdate", MessageBoxButtons.OK);
+                }
+                else if ((this_year - born_year) >= 100)
+                {
+                    MessageBox.Show("The student age most be below 100", "Invalid birthdate", MessageBoxButtons.OK);
+                }
+                else if (verifyData())
+                {
+                    pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
+
+                    if (student.updateStudent(id, fname, lname, bdate, phone, gender, address, pic))
+                    {
+                        MessageBox.Show("Student Information Updated", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Empty Fields", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Empty Fields", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Enter a valid student ID", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //borrar estudiante seleccionado
-            int id = Convert.ToInt32(textBoxID.Text);
-            //mostrar mensaje de confirmacion borrado
-            if (MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                if (student.deleteStudent(id))
+                int id = Convert.ToInt32(textBoxID.Text);
+                //mostrar mensaje de confirmacion borrado
+                if (MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Student Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //limpiar campos
-                    textBoxID.Text = "";
-                    textBoxFname.Text = "";
-                    textBoxLname.Text = "";
-                    maskedTextBoxPhone.Clear();
-                    textBoxAddress.Text = "";
-                    dateTimePicker1.Value = DateTime.Now;
-                    pictureBoxStudent.Image = null;
+                    if (student.deleteStudent(id))
+                    {
+                        MessageBox.Show("Student Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //limpiar campos
+                        textBoxID.Text = "";
+                        textBoxFname.Text = "";
+                        textBoxLname.Text = "";
+                        maskedTextBoxPhone.Clear();
+                        textBoxAddress.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        pictureBoxStudent.Image = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student Not Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Student Not Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a valid student ID", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -160,6 +175,10 @@ namespace Student_System
                     pictureBoxStudent.Image = Image.FromStream(picture);
 
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a valid student ID", "Invalid ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

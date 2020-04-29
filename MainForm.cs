@@ -31,7 +31,8 @@ namespace Student_System
 
         private void staticsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            StaticsForm staticsF = new StaticsForm();
+            staticsF.Show(this);
         }
 
         private void editRemoveToolStripMenuItem_Click(object sender, EventArgs e)
