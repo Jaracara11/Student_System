@@ -24,9 +24,24 @@ namespace Student_System
 
         private void StaticsForm_Load(object sender, EventArgs e)
         {
+            //colores del panel
             panTotalColor = panelTotal.BackColor;
             panMaleColor = panelMale.BackColor;
             panFemaleColor = panelFemale.BackColor;
+
+            //desplegar los valores
+            STUDENT student = new STUDENT();
+            double totalStudents = Convert.ToDouble(student.totalStudents());
+            double totalMaleStudent = Convert.ToDouble(student.totalMaleStudents());
+            double totalFemaleStudent = Convert.ToDouble(student.totalFemaleStudents());
+
+            //contar % de estudiantes
+            double malePercentage = totalMaleStudent * 100 / totalStudents;
+            double femalePercentage = totalFemaleStudent * 100 / totalStudents;
+
+            labelTotal.Text = "Total Students: " + totalStudents.ToString();
+            labelMale.Text = "Male: " + malePercentage.ToString("0.00") + "%";
+            labelFemale.Text = "Female:" + femalePercentage.ToString("0.00") + "%";
         }
 
         private void labelTotal_MouseEnter(object sender, EventArgs e)
@@ -43,20 +58,29 @@ namespace Student_System
 
         private void labelMale_MouseEnter(object sender, EventArgs e)
         {
-
+            panelMale.BackColor = Color.White;
+            labelMale.ForeColor = panMaleColor;
         }
 
         private void labelMale_MouseLeave(object sender, EventArgs e)
         {
-
+            panelMale.BackColor = panMaleColor;
+            labelMale.ForeColor = Color.White;
         }
 
         private void labelFemale_MouseEnter(object sender, EventArgs e)
         {
-
+            panelFemale.BackColor = Color.White;
+            labelFemale.ForeColor = panFemaleColor;
         }
 
         private void labelFemale_MouseLeave(object sender, EventArgs e)
+        {
+            panelFemale.BackColor = panFemaleColor;
+            labelFemale.ForeColor = Color.White;
+        }
+
+        private void panelTotal_Paint(object sender, PaintEventArgs e)
         {
 
         }

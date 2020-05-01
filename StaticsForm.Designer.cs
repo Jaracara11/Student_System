@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panelTotal = new System.Windows.Forms.Panel();
-            this.panelMale = new System.Windows.Forms.Panel();
-            this.panelFemale = new System.Windows.Forms.Panel();
             this.labelTotal = new System.Windows.Forms.Label();
+            this.panelMale = new System.Windows.Forms.Panel();
             this.labelMale = new System.Windows.Forms.Label();
+            this.panelFemale = new System.Windows.Forms.Panel();
             this.labelFemale = new System.Windows.Forms.Label();
             this.panelTotal.SuspendLayout();
             this.panelMale.SuspendLayout();
@@ -47,24 +47,7 @@
             this.panelTotal.Name = "panelTotal";
             this.panelTotal.Size = new System.Drawing.Size(455, 100);
             this.panelTotal.TabIndex = 0;
-            // 
-            // panelMale
-            // 
-            this.panelMale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.panelMale.Controls.Add(this.labelMale);
-            this.panelMale.Location = new System.Drawing.Point(0, 99);
-            this.panelMale.Name = "panelMale";
-            this.panelMale.Size = new System.Drawing.Size(234, 107);
-            this.panelMale.TabIndex = 1;
-            // 
-            // panelFemale
-            // 
-            this.panelFemale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panelFemale.Controls.Add(this.labelFemale);
-            this.panelFemale.Location = new System.Drawing.Point(231, 99);
-            this.panelFemale.Name = "panelFemale";
-            this.panelFemale.Size = new System.Drawing.Size(225, 107);
-            this.panelFemale.TabIndex = 2;
+            this.panelTotal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotal_Paint);
             // 
             // labelTotal
             // 
@@ -80,6 +63,15 @@
             this.labelTotal.MouseEnter += new System.EventHandler(this.labelTotal_MouseEnter);
             this.labelTotal.MouseLeave += new System.EventHandler(this.labelTotal_MouseLeave);
             // 
+            // panelMale
+            // 
+            this.panelMale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panelMale.Controls.Add(this.labelMale);
+            this.panelMale.Location = new System.Drawing.Point(0, 99);
+            this.panelMale.Name = "panelMale";
+            this.panelMale.Size = new System.Drawing.Size(234, 107);
+            this.panelMale.TabIndex = 1;
+            // 
             // labelMale
             // 
             this.labelMale.AutoSize = true;
@@ -93,6 +85,15 @@
             this.labelMale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelMale.MouseEnter += new System.EventHandler(this.labelMale_MouseEnter);
             this.labelMale.MouseLeave += new System.EventHandler(this.labelMale_MouseLeave);
+            // 
+            // panelFemale
+            // 
+            this.panelFemale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panelFemale.Controls.Add(this.labelFemale);
+            this.panelFemale.Location = new System.Drawing.Point(231, 99);
+            this.panelFemale.Name = "panelFemale";
+            this.panelFemale.Size = new System.Drawing.Size(225, 107);
+            this.panelFemale.TabIndex = 2;
             // 
             // labelFemale
             // 
