@@ -43,7 +43,8 @@ namespace Student_System
 
         private void manageStudentsFormToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ManageStudentsForm mngStdF = new ManageStudentsForm();
+            mngStdF.Show(this);
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
