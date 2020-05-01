@@ -103,5 +103,36 @@ namespace Student_System
                 return false;
             }
         }
+
+        //funcion ejecutar conteo queries
+        public string execCount(string query)
+        {
+            MySqlCommand command = new MySqlCommand(query, db.getConnection);
+
+            db.openConnection();
+            string count = command.ExecuteScalar().ToString();
+            db.closeConnection();
+
+            return count;
+        }
+
+        //obtener total de estudiantes
+        public string totalStudents()
+        {
+            return execCount("SELECT COUNT(*) FROM `student`");
+        }
+
+        //obtener total de estudiantes varones
+        public string totalMaleStudents()
+        {
+            return execCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Male'");
+        }
+
+        //obtener total de estudiantes femeninas
+        public string totalFemaleStudents()
+        {
+            return execCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Female'");
+        }
+
     }
 }
