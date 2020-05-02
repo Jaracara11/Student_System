@@ -224,7 +224,7 @@
             // 
             // btnUploadImage
             // 
-            this.btnUploadImage.Location = new System.Drawing.Point(111, 490);
+            this.btnUploadImage.Location = new System.Drawing.Point(111, 478);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Size = new System.Drawing.Size(213, 23);
             this.btnUploadImage.TabIndex = 16;
@@ -238,7 +238,7 @@
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStudent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.ForeColor = System.Drawing.Color.Black;
-            this.btnAddStudent.Location = new System.Drawing.Point(201, 532);
+            this.btnAddStudent.Location = new System.Drawing.Point(201, 516);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(123, 40);
             this.btnAddStudent.TabIndex = 17;
@@ -252,7 +252,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(111, 532);
+            this.btnCancel.Location = new System.Drawing.Point(111, 516);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(69, 40);
             this.btnCancel.TabIndex = 18;

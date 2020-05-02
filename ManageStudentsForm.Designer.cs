@@ -30,7 +30,7 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.btnUpload = new System.Windows.Forms.Button();
+            this.btnDownload = new System.Windows.Forms.Button();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxAddress = new System.Windows.Forms.TextBox();
@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(99, 556);
+            this.btnCancel.Location = new System.Drawing.Point(99, 540);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(69, 40);
             this.btnCancel.TabIndex = 35;
@@ -72,21 +73,21 @@
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddStudent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddStudent.ForeColor = System.Drawing.Color.Black;
-            this.btnAddStudent.Location = new System.Drawing.Point(189, 556);
+            this.btnAddStudent.Location = new System.Drawing.Point(189, 540);
             this.btnAddStudent.Name = "btnAddStudent";
             this.btnAddStudent.Size = new System.Drawing.Size(123, 40);
             this.btnAddStudent.TabIndex = 34;
             this.btnAddStudent.Text = "Add";
             this.btnAddStudent.UseVisualStyleBackColor = false;
             // 
-            // btnUpload
+            // btnDownload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(99, 514);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(107, 23);
-            this.btnUpload.TabIndex = 33;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnDownload.Location = new System.Drawing.Point(211, 502);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(101, 23);
+            this.btnDownload.TabIndex = 33;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.UseVisualStyleBackColor = true;
             // 
             // pictureBoxStudent
             // 
@@ -264,17 +265,27 @@
             this.label8.Text = "ID:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(99, 502);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Upload";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ManageStudentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(800, 607);
+            this.ClientSize = new System.Drawing.Size(800, 590);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddStudent);
-            this.Controls.Add(this.btnUpload);
+            this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.pictureBoxStudent);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxAddress);
@@ -308,7 +319,7 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.Button btnDownload;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxAddress;
@@ -327,5 +338,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }
