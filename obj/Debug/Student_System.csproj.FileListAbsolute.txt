@@ -20,3 +20,4 @@ C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.MainForm.res
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.StudentListForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.UpdateDeleteStudentForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.StaticsForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageStudentsForm.resources
