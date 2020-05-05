@@ -49,13 +49,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.labelTotalStudents = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -73,6 +74,7 @@
             this.btnSearch.TabIndex = 35;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnEdit
             // 
@@ -80,7 +82,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(264, 540);
+            this.btnEdit.Location = new System.Drawing.Point(105, 540);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(73, 38);
             this.btnEdit.TabIndex = 34;
@@ -95,6 +97,7 @@
             this.btnDownload.TabIndex = 33;
             this.btnDownload.Text = "Download";
             this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // pictureBoxStudent
             // 
@@ -257,9 +260,9 @@
             this.textBoxID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxID.Location = new System.Drawing.Point(99, 12);
             this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
             this.textBoxID.Size = new System.Drawing.Size(213, 26);
             this.textBoxID.TabIndex = 37;
-            this.textBoxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label8
             // 
@@ -270,24 +273,26 @@
             this.label8.Size = new System.Drawing.Size(26, 20);
             this.label8.TabIndex = 36;
             this.label8.Text = "ID:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
-            // button1
+            // btnUpload
             // 
-            this.button1.Location = new System.Drawing.Point(99, 502);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 23);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Upload";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpload.Location = new System.Drawing.Point(99, 502);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(101, 23);
+            this.btnUpload.TabIndex = 38;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click_1);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(329, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(515, 435);
             this.dataGridView1.TabIndex = 39;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // label9
             // 
@@ -313,7 +318,7 @@
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
-            this.btnRemove.Location = new System.Drawing.Point(352, 540);
+            this.btnRemove.Location = new System.Drawing.Point(193, 540);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(73, 38);
             this.btnRemove.TabIndex = 42;
@@ -326,7 +331,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(176, 540);
+            this.button2.Location = new System.Drawing.Point(17, 540);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(73, 38);
             this.button2.TabIndex = 43;
@@ -339,27 +344,40 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.Black;
-            this.btnReset.Location = new System.Drawing.Point(440, 540);
+            this.btnReset.Location = new System.Drawing.Point(281, 540);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(73, 38);
             this.btnReset.TabIndex = 44;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.button3_Click);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // labelTotalStudents
+            // 
+            this.labelTotalStudents.BackColor = System.Drawing.Color.BlueViolet;
+            this.labelTotalStudents.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalStudents.ForeColor = System.Drawing.Color.White;
+            this.labelTotalStudents.Location = new System.Drawing.Point(632, 528);
+            this.labelTotalStudents.Name = "labelTotalStudents";
+            this.labelTotalStudents.Size = new System.Drawing.Size(212, 50);
+            this.labelTotalStudents.TabIndex = 45;
+            this.labelTotalStudents.Text = "Total Students: 100";
+            this.labelTotalStudents.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ManageStudentsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(868, 590);
+            this.ClientSize = new System.Drawing.Size(856, 590);
+            this.Controls.Add(this.labelTotalStudents);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnSearch);
@@ -384,7 +402,7 @@
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ManageStudentsForm";
+            this.Text = "Manage Students";
             this.Load += new System.EventHandler(this.ManageStudentsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -418,12 +436,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Label labelTotalStudents;
     }
 }

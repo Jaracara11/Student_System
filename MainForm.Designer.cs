@@ -72,7 +72,7 @@
             // 
             this.addNewStudentToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.addNewStudentToolStripMenuItem.Name = "addNewStudentToolStripMenuItem";
-            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewStudentToolStripMenuItem.Text = "Add New Student";
             this.addNewStudentToolStripMenuItem.Click += new System.EventHandler(this.addNewStudentToolStripMenuItem_Click);
             // 
@@ -80,7 +80,7 @@
             // 
             this.studentListToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.studentListToolStripMenuItem.Text = "Student List";
             this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
@@ -88,7 +88,7 @@
             // 
             this.staticsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.staticsToolStripMenuItem.Name = "staticsToolStripMenuItem";
-            this.staticsToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.staticsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.staticsToolStripMenuItem.Text = "Statics";
             this.staticsToolStripMenuItem.Click += new System.EventHandler(this.staticsToolStripMenuItem_Click);
             // 
@@ -96,7 +96,7 @@
             // 
             this.editRemoveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.editRemoveToolStripMenuItem.Name = "editRemoveToolStripMenuItem";
-            this.editRemoveToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.editRemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editRemoveToolStripMenuItem.Text = "Edit/Remove";
             this.editRemoveToolStripMenuItem.Click += new System.EventHandler(this.editRemoveToolStripMenuItem_Click);
             // 
@@ -104,15 +104,15 @@
             // 
             this.manageStudentsFormToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.manageStudentsFormToolStripMenuItem.Name = "manageStudentsFormToolStripMenuItem";
-            this.manageStudentsFormToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.manageStudentsFormToolStripMenuItem.Text = "Manage Students Form";
+            this.manageStudentsFormToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageStudentsFormToolStripMenuItem.Text = "Manage Students";
             this.manageStudentsFormToolStripMenuItem.Click += new System.EventHandler(this.manageStudentsFormToolStripMenuItem_Click);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 

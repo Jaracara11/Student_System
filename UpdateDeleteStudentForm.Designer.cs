@@ -58,7 +58,7 @@
             // 
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(107, 142);
+            this.dateTimePicker1.Location = new System.Drawing.Point(98, 142);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(91, 20);
             this.dateTimePicker1.TabIndex = 11;
@@ -68,7 +68,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 142);
+            this.label3.Location = new System.Drawing.Point(12, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
             this.label3.TabIndex = 10;
@@ -77,7 +77,7 @@
             // textBoxLname
             // 
             this.textBoxLname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLname.Location = new System.Drawing.Point(107, 98);
+            this.textBoxLname.Location = new System.Drawing.Point(98, 98);
             this.textBoxLname.Name = "textBoxLname";
             this.textBoxLname.Size = new System.Drawing.Size(213, 26);
             this.textBoxLname.TabIndex = 9;
@@ -86,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(21, 104);
+            this.label2.Location = new System.Drawing.Point(12, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 20);
             this.label2.TabIndex = 8;
@@ -95,7 +95,7 @@
             // textBoxFname
             // 
             this.textBoxFname.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFname.Location = new System.Drawing.Point(107, 58);
+            this.textBoxFname.Location = new System.Drawing.Point(98, 58);
             this.textBoxFname.Name = "textBoxFname";
             this.textBoxFname.Size = new System.Drawing.Size(213, 26);
             this.textBoxFname.TabIndex = 7;
@@ -104,7 +104,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 64);
+            this.label1.Location = new System.Drawing.Point(12, 64);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 20);
             this.label1.TabIndex = 6;
@@ -113,7 +113,7 @@
             // textBoxID
             // 
             this.textBoxID.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxID.Location = new System.Drawing.Point(107, 14);
+            this.textBoxID.Location = new System.Drawing.Point(98, 14);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(91, 26);
             this.textBoxID.TabIndex = 13;
@@ -124,7 +124,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 20);
+            this.label4.Location = new System.Drawing.Point(12, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 20);
             this.label4.TabIndex = 12;
@@ -133,7 +133,7 @@
             // maskedTextBoxPhone
             // 
             this.maskedTextBoxPhone.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBoxPhone.Location = new System.Drawing.Point(107, 223);
+            this.maskedTextBoxPhone.Location = new System.Drawing.Point(98, 223);
             this.maskedTextBoxPhone.Mask = "999-000-0000";
             this.maskedTextBoxPhone.Name = "maskedTextBoxPhone";
             this.maskedTextBoxPhone.PromptChar = '-';
@@ -144,7 +144,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 229);
+            this.label5.Location = new System.Drawing.Point(12, 229);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 16;
@@ -155,7 +155,7 @@
             this.groupBox1.Controls.Add(this.radioButtonFemale);
             this.groupBox1.Controls.Add(this.radioButtonMale);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(107, 174);
+            this.groupBox1.Location = new System.Drawing.Point(98, 174);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(120, 35);
             this.groupBox1.TabIndex = 15;
@@ -187,7 +187,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 189);
+            this.label6.Location = new System.Drawing.Point(12, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 20);
             this.label6.TabIndex = 14;
@@ -196,7 +196,7 @@
             // textBoxAddress
             // 
             this.textBoxAddress.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAddress.Location = new System.Drawing.Point(416, 20);
+            this.textBoxAddress.Location = new System.Drawing.Point(407, 20);
             this.textBoxAddress.Multiline = true;
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(213, 64);
@@ -206,7 +206,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(346, 20);
+            this.label7.Location = new System.Drawing.Point(337, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(64, 20);
             this.label7.TabIndex = 18;
@@ -214,7 +214,7 @@
             // 
             // btnUploadImage
             // 
-            this.btnUploadImage.Location = new System.Drawing.Point(416, 268);
+            this.btnUploadImage.Location = new System.Drawing.Point(407, 268);
             this.btnUploadImage.Name = "btnUploadImage";
             this.btnUploadImage.Size = new System.Drawing.Size(213, 23);
             this.btnUploadImage.TabIndex = 21;
@@ -225,7 +225,7 @@
             // pictureBoxStudent
             // 
             this.pictureBoxStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBoxStudent.Location = new System.Drawing.Point(416, 104);
+            this.pictureBoxStudent.Location = new System.Drawing.Point(407, 104);
             this.pictureBoxStudent.Name = "pictureBoxStudent";
             this.pictureBoxStudent.Size = new System.Drawing.Size(213, 158);
             this.pictureBoxStudent.TabIndex = 20;
@@ -235,7 +235,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(346, 104);
+            this.label8.Location = new System.Drawing.Point(337, 104);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 20);
             this.label8.TabIndex = 22;
@@ -247,7 +247,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(356, 313);
+            this.btnDelete.Location = new System.Drawing.Point(338, 313);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(69, 40);
             this.btnDelete.TabIndex = 24;
@@ -261,7 +261,7 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(217, 313);
+            this.btnEdit.Location = new System.Drawing.Point(199, 313);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(123, 40);
             this.btnEdit.TabIndex = 23;
@@ -275,7 +275,7 @@
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.Black;
-            this.btnFind.Location = new System.Drawing.Point(217, 14);
+            this.btnFind.Location = new System.Drawing.Point(208, 14);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(103, 26);
             this.btnFind.TabIndex = 25;
@@ -288,7 +288,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(84)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(661, 372);
+            this.ClientSize = new System.Drawing.Size(633, 365);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
