@@ -87,7 +87,10 @@ namespace Student_System
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            //codigo para busqueda de estudiantes
+            string query = "SELECT * FROM `student` WHERE CONCAT(`first_name`, `last_name`, `address`) LIKE'%" + textBoxSearch.Text +"%'";
+            MySqlCommand command = new MySqlCommand(query);
+            fillGrid(command);
         }
 
         private void btnUpload_Click(object sender, EventArgs e)
@@ -130,6 +133,168 @@ namespace Student_System
             if (opf.ShowDialog() == DialogResult.OK)
             {
                 pictureBoxStudent.Image = Image.FromFile(opf.FileName);
+            }
+        }
+
+        //agregar nuevo estudiante
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            STUDENT student = new STUDENT();
+            string fname = textBoxFname.Text;
+            string lname = textBoxLname.Text;
+            DateTime bdate = dateTimePicker1.Value;
+            string phone = maskedTextBoxPhone.Text;
+            string address = textBoxAddress.Text;
+            string gender = "Male";
+
+            if (radioButtonFemale.Checked)
+            {
+                gender = "Female";
+            }
+
+            MemoryStream pic = new MemoryStream();
+
+            //la edad del estudiante debe ser entre 10 y 100
+            int born_year = dateTimePicker1.Value.Year;
+            int this_year = DateTime.Now.Year;
+
+            if ((this_year - born_year) < 10)
+            {
+                MessageBox.Show("The student age most be over 10", "Invalid birthdate", MessageBoxButtons.OK);
+            }
+            else if ((this_year - born_year) >= 100)
+            {
+                MessageBox.Show("The student age most be below 100", "Invalid birthdate", MessageBoxButtons.OK);
+            }
+            else if (verifyData())
+            {
+                pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
+
+                if (student.insertStudent(fname, lname, bdate, phone, gender, address, pic))
+                {
+                    MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty Fields", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        //editar estudiante seleccionado
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            //editar estudiante seleccionado
+            try
+            {
+                int id = Convert.ToInt32(textBoxID.Text);
+                string fname = textBoxFname.Text;
+                string lname = textBoxLname.Text;
+                DateTime bdate = dateTimePicker1.Value;
+                string phone = maskedTextBoxPhone.Text;
+                string address = textBoxAddress.Text;
+                string gender = "Male";
+
+                if (radioButtonFemale.Checked)
+                {
+                    gender = "Female";
+                }
+
+                MemoryStream pic = new MemoryStream();
+
+                //la edad del estudiante debe ser entre 10 y 100
+                int born_year = dateTimePicker1.Value.Year;
+                int this_year = DateTime.Now.Year;
+
+                if ((this_year - born_year) < 10)
+                {
+                    MessageBox.Show("The student age most be over 10", "Invalid birthdate", MessageBoxButtons.OK);
+                }
+                else if ((this_year - born_year) >= 100)
+                {
+                    MessageBox.Show("The student age most be below 100", "Invalid birthdate", MessageBoxButtons.OK);
+                }
+                else if (verifyData())
+                {
+                    pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
+
+                    if (student.updateStudent(id, fname, lname, bdate, phone, gender, address, pic))
+                    {
+                        MessageBox.Show("Student Information Updated", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Empty Fields", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a valid student ID", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        //borrar estudiante seleccionado
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            //borrar estudiante seleccionado
+            try
+            {
+                int id = Convert.ToInt32(textBoxID.Text);
+                //mostrar mensaje de confirmacion borrado
+                if (MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (student.deleteStudent(id))
+                    {
+                        MessageBox.Show("Student Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //la linea "fillGrid" es para que se actualice el gv al modificarlo
+                        fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                        //limpiar campos
+                        textBoxID.Text = "";
+                        textBoxFname.Text = "";
+                        textBoxLname.Text = "";
+                        maskedTextBoxPhone.Clear();
+                        textBoxAddress.Text = "";
+                        dateTimePicker1.Value = DateTime.Now;
+                        pictureBoxStudent.Image = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student Not Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Enter a valid student ID", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //funcion para verificar data
+        bool verifyData()
+        {
+            if ((textBoxFname.Text.Trim() == "") ||
+                (textBoxLname.Text.Trim() == "") ||
+                (maskedTextBoxPhone.Text.Trim() == "") ||
+                (textBoxAddress.Text.Trim() == "") ||
+                (pictureBoxStudent.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }
