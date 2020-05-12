@@ -54,7 +54,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.labelTotalStudents = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
@@ -88,6 +88,7 @@
             this.btnEdit.TabIndex = 34;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDownload
             // 
@@ -282,7 +283,7 @@
             this.btnUpload.TabIndex = 38;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click_1);
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // dataGridView1
             // 
@@ -324,19 +325,21 @@
             this.btnRemove.TabIndex = 42;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // button2
+            // btnAdd
             // 
-            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(17, 540);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(73, 38);
-            this.button2.TabIndex = 43;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(17, 540);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(73, 38);
+            this.btnAdd.TabIndex = 43;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnReset
             // 
@@ -372,7 +375,7 @@
             this.ClientSize = new System.Drawing.Size(856, 590);
             this.Controls.Add(this.labelTotalStudents);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.label9);
@@ -441,7 +444,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label labelTotalStudents;
     }

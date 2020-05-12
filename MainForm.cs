@@ -49,7 +49,8 @@ namespace Student_System
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PrintStudentsForm prStdF = new PrintStudentsForm();
+            prStdF.Show(this);
         }
 
         private void Main_Form_Load(object sender, EventArgs e)
