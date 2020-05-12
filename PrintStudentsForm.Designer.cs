@@ -70,6 +70,7 @@
             this.btnPrint.TabIndex = 18;
             this.btnPrint.Text = "Print to Text";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // groupBox1
             // 
@@ -96,6 +97,7 @@
             this.btnGo.TabIndex = 19;
             this.btnGo.Text = "GO";
             this.btnGo.UseVisualStyleBackColor = false;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // groupBox2
             // 
@@ -167,6 +169,7 @@
             this.radioBtnNo.TabStop = true;
             this.radioBtnNo.Text = "No";
             this.radioBtnNo.UseVisualStyleBackColor = true;
+            this.radioBtnNo.CheckedChanged += new System.EventHandler(this.radioBtnNo_CheckedChanged);
             // 
             // radioBtnYes
             // 
@@ -179,6 +182,7 @@
             this.radioBtnYes.TabIndex = 2;
             this.radioBtnYes.Text = "Yes";
             this.radioBtnYes.UseVisualStyleBackColor = true;
+            this.radioBtnYes.CheckedChanged += new System.EventHandler(this.radioBtnYes_CheckedChanged);
             // 
             // label1
             // 
