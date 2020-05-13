@@ -60,7 +60,8 @@ namespace Student_System
 
         private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AddCourseForm addCrsF = new AddCourseForm();
+            addCrsF.Show(this);
         }
     }
 }

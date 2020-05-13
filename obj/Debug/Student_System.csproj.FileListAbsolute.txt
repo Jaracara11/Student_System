@@ -22,3 +22,4 @@ C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.UpdateDelete
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.StaticsForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageStudentsForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.PrintStudentsForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.AddCourseForm.resources
