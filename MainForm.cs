@@ -57,5 +57,10 @@ namespace Student_System
         {
 
         }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

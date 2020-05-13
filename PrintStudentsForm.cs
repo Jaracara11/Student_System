@@ -131,12 +131,34 @@ namespace Student_System
                     File.Create(path);
                 }
 
+                DateTime bdate;
+
+                //filas
                 for(int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    //columnas
+                    for (int j = 0; j < dataGridView1.Columns.Count - 1; j++)
                     {
-                        writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString()+"\t"+"|");
+                        //columna birthdate
+                        if(j == 3)
+                        {
+                            bdate = Convert.ToDateTime(dataGridView1.Rows[i].Cells[j].Value.ToString());
+                            writer.Write("\t" + bdate.ToString("yyyy-MM-dd") + "\t" + "|");
+                        }
+                        //ultima columna
+                        else if(j == dataGridView1.Columns.Count - 2)
+                        {
+                            writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString());
+                        }
+                        else
+                        {
+                            writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                        }
                     }
+                    //generar nueva linea
+                    writer.WriteLine("");
+                    //separacion
+                    writer.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 }
 
                 writer.Close();
