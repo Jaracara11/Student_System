@@ -146,7 +146,7 @@
             this.addCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.addCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
-            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addCourseToolStripMenuItem.Text = "Add Course";
             this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
             // 
@@ -155,23 +155,25 @@
             this.removeCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.removeCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
-            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.removeCourseToolStripMenuItem.Text = "Remove Course";
+            this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
             // 
             // editCourseToolStripMenuItem
             // 
             this.editCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.editCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
-            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCourseToolStripMenuItem.Text = "Edit Course";
+            this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
             // 
             // manageCoursesToolStripMenuItem
             // 
             this.manageCoursesToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.manageCoursesToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageCoursesToolStripMenuItem.Name = "manageCoursesToolStripMenuItem";
-            this.manageCoursesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.manageCoursesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.manageCoursesToolStripMenuItem.Text = "Manage Courses";
             // 
             // printToolStripMenuItem1
@@ -179,7 +181,7 @@
             this.printToolStripMenuItem1.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.printToolStripMenuItem1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem1.Text = "Print";
             // 
             // sCOREToolStripMenuItem

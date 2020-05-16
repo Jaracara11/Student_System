@@ -45,6 +45,7 @@
             this.textBoxLabel.Name = "textBoxLabel";
             this.textBoxLabel.Size = new System.Drawing.Size(267, 26);
             this.textBoxLabel.TabIndex = 3;
+            //this.textBoxLabel.TextChanged += new System.EventHandler(this.textBoxLabel_TextChanged);
             // 
             // label1
             // 

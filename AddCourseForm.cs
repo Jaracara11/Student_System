@@ -45,5 +45,6 @@ namespace Student_System
                 MessageBox.Show("This Course Name Already Exists", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
     }
 }
