@@ -37,6 +37,11 @@
             this.manageStudentsFormToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOURSEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageCoursesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sCOREToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +55,7 @@
             this.sCOREToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(820, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,7 +79,7 @@
             this.addNewStudentToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.addNewStudentToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewStudentToolStripMenuItem.Name = "addNewStudentToolStripMenuItem";
-            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.addNewStudentToolStripMenuItem.Text = "Add New Student";
             this.addNewStudentToolStripMenuItem.Click += new System.EventHandler(this.addNewStudentToolStripMenuItem_Click);
             // 
@@ -83,7 +88,7 @@
             this.studentListToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.studentListToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentListToolStripMenuItem.Name = "studentListToolStripMenuItem";
-            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.studentListToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.studentListToolStripMenuItem.Text = "Student List";
             this.studentListToolStripMenuItem.Click += new System.EventHandler(this.studentListToolStripMenuItem_Click);
             // 
@@ -92,7 +97,7 @@
             this.staticsToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.staticsToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staticsToolStripMenuItem.Name = "staticsToolStripMenuItem";
-            this.staticsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.staticsToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.staticsToolStripMenuItem.Text = "Statics";
             this.staticsToolStripMenuItem.Click += new System.EventHandler(this.staticsToolStripMenuItem_Click);
             // 
@@ -101,7 +106,7 @@
             this.editRemoveToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.editRemoveToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editRemoveToolStripMenuItem.Name = "editRemoveToolStripMenuItem";
-            this.editRemoveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editRemoveToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.editRemoveToolStripMenuItem.Text = "Edit/Remove";
             this.editRemoveToolStripMenuItem.Click += new System.EventHandler(this.editRemoveToolStripMenuItem_Click);
             // 
@@ -110,7 +115,7 @@
             this.manageStudentsFormToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.manageStudentsFormToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageStudentsFormToolStripMenuItem.Name = "manageStudentsFormToolStripMenuItem";
-            this.manageStudentsFormToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageStudentsFormToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.manageStudentsFormToolStripMenuItem.Text = "Manage Students";
             this.manageStudentsFormToolStripMenuItem.Click += new System.EventHandler(this.manageStudentsFormToolStripMenuItem_Click);
             // 
@@ -119,15 +124,65 @@
             this.printToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.printToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.printToolStripMenuItem.Text = "Print";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // cOURSEToolStripMenuItem
             // 
+            this.cOURSEToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
+            this.cOURSEToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCourseToolStripMenuItem,
+            this.removeCourseToolStripMenuItem,
+            this.editCourseToolStripMenuItem,
+            this.manageCoursesToolStripMenuItem,
+            this.printToolStripMenuItem1});
             this.cOURSEToolStripMenuItem.Name = "cOURSEToolStripMenuItem";
             this.cOURSEToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.cOURSEToolStripMenuItem.Text = "COURSE";
+            // 
+            // addCourseToolStripMenuItem
+            // 
+            this.addCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.addCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
+            this.addCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addCourseToolStripMenuItem.Text = "Add Course";
+            this.addCourseToolStripMenuItem.Click += new System.EventHandler(this.addCourseToolStripMenuItem_Click);
+            // 
+            // removeCourseToolStripMenuItem
+            // 
+            this.removeCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.removeCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
+            this.removeCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeCourseToolStripMenuItem.Text = "Remove Course";
+            this.removeCourseToolStripMenuItem.Click += new System.EventHandler(this.removeCourseToolStripMenuItem_Click);
+            // 
+            // editCourseToolStripMenuItem
+            // 
+            this.editCourseToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.editCourseToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCourseToolStripMenuItem.Name = "editCourseToolStripMenuItem";
+            this.editCourseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCourseToolStripMenuItem.Text = "Edit Course";
+            this.editCourseToolStripMenuItem.Click += new System.EventHandler(this.editCourseToolStripMenuItem_Click);
+            // 
+            // manageCoursesToolStripMenuItem
+            // 
+            this.manageCoursesToolStripMenuItem.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.manageCoursesToolStripMenuItem.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageCoursesToolStripMenuItem.Name = "manageCoursesToolStripMenuItem";
+            this.manageCoursesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.manageCoursesToolStripMenuItem.Text = "Manage Courses";
+            // 
+            // printToolStripMenuItem1
+            // 
+            this.printToolStripMenuItem1.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.printToolStripMenuItem1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem1.Text = "Print";
             // 
             // sCOREToolStripMenuItem
             // 
@@ -140,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(820, 564);
+            this.ClientSize = new System.Drawing.Size(584, 229);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
@@ -150,7 +205,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student Management System";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -171,5 +225,10 @@
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cOURSEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sCOREToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageCoursesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem1;
     }
 }

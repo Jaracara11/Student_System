@@ -57,5 +57,23 @@ namespace Student_System
         {
 
         }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCourseForm addCrsF = new AddCourseForm();
+            addCrsF.Show(this);
+        }
+
+        private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveCourseForm rmvCrsF = new RemoveCourseForm();
+            rmvCrsF.Show(this);
+        }
+
+        private void editCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditCourseForm editCrsF = new EditCourseForm();
+            editCrsF.Show(this);
+        }
     }
 }
