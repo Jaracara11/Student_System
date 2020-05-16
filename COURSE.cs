@@ -51,11 +51,11 @@ namespace Student_System
             if (table.Rows.Count > 0)
             {
                 //devuelve false si el curso ya existe
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -111,9 +111,14 @@ namespace Student_System
         //funcion para editar curso seleccionado
         public bool updateCourse(int courseId, string courseName, int hoursNumber, string description)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `studentsdb`.`course` SET `label` = '" + courseName + "', `hours_number` = '" + hoursNumber + "', `description`= '" + description + "' WHERE `id` = '" + courseId + "'", db.getConnection);
+            MySqlCommand command = new MySqlCommand("UPDATE `course` SET `label` = @name, `hours_number` = @hrs, `description` = @dscr WHERE `id` = @cid", db.getConnection);
 
-            
+            //@cid, @name, @hrs, @dscr
+            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = courseName;
+            command.Parameters.Add("@hrs", MySqlDbType.Int32).Value = hoursNumber;
+            command.Parameters.Add("@dscr", MySqlDbType.VarChar).Value = description;
+
             db.openConnection();
 
             if (command.ExecuteNonQuery() == 1)
