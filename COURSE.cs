@@ -111,7 +111,7 @@ namespace Student_System
         //funcion para editar curso seleccionado
         public bool updateCourse(int courseId, string courseName, int hoursNumber, string description)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `course` SET `label` = @name, `hours_number` = @hrs, `decription` = @dscr WHERE `id` = @cid", db.getConnection);
+            MySqlCommand command = new MySqlCommand("UPDATE `course` SET `label` = @name, `hours_number` = @hrs, `description` = @dscr WHERE `id` = @cid", db.getConnection);
 
             //@cid, @name, @hrs, @dscr
             command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;

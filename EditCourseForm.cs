@@ -41,7 +41,7 @@ namespace Student_System
                 string descr = textBoxDescription.Text;
                 int id = (int)comboBoxCourse.SelectedValue;
 
-                if (!course.checkCourseName(name))
+                if (course.checkCourseName(name, id))
                 {
                     if (course.updateCourse(id, name, hrs, descr))
                     {
