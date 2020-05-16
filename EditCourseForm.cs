@@ -36,14 +36,15 @@ namespace Student_System
             try
             {
                 //actualizar curso seleccionado
-                string name = textBoxLabel.Text;
+                string name = comboBoxCourse.Text.ToString();
                 int hrs = (int)numericUpDownHours.Value;
                 string descr = textBoxDescription.Text;
                 int id = (int)comboBoxCourse.SelectedValue;
+                string namechange = textBoxLabel.Text;
 
-                if (!course.checkCourseName(name))
+                if (course.checkCourseName(name,id))
                 {
-                    if (course.updateCourse(id, name, hrs, descr))
+                    if (course.updateCourse(id, namechange, hrs, descr) == true)
                     {
                         MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -57,7 +58,7 @@ namespace Student_System
                     MessageBox.Show("This Course Name Already Exists", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("No Course Selected", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
