@@ -18,16 +18,6 @@ namespace Student_System
             InitializeComponent();
         }
 
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_Form_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();

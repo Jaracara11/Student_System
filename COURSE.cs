@@ -25,10 +25,12 @@ namespace Student_System
 
             if(command.ExecuteNonQuery() == 1)
             {
+                db.closeConnection();
                 return true;
             }
             else
             {
+                db.closeConnection();
                 return false;
             }
         }
@@ -50,11 +52,13 @@ namespace Student_System
 
             if (table.Rows.Count > 0)
             {
+                db.closeConnection();
                 //devuelve false si el curso ya existe
                 return false;
             }
             else
             {
+                db.closeConnection();
                 return true;
             }
         }
@@ -70,10 +74,12 @@ namespace Student_System
 
             if(command.ExecuteNonQuery() == 1)
             {
+                db.closeConnection();
                 return true;
             }
             else
             {
+                db.closeConnection();
                 return false;
             }
         }
@@ -123,12 +129,32 @@ namespace Student_System
 
             if (command.ExecuteNonQuery() == 1)
             {
+                db.closeConnection();
                 return true;
             }
             else
             {
+                db.closeConnection();
                 return false;
             }
+        }
+
+        //funcion ejecutar conteo queries
+        public string execCount(string query)
+        {
+            MySqlCommand command = new MySqlCommand(query, db.getConnection);
+
+            db.openConnection();
+            string count = command.ExecuteScalar().ToString();
+            db.closeConnection();
+
+            return count;
+        }
+
+        //obtener total de cursos
+        public string totalCourses()
+        {
+            return execCount("SELECT COUNT(*) FROM `course`");
         }
     }
 }

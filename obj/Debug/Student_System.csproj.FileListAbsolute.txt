@@ -25,3 +25,4 @@ C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.csproj.CopyC
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.exe
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.pdb
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.csprojAssemblyReference.cache
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageCoursesForm.resources

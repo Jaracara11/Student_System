@@ -27,8 +27,17 @@ namespace Student_System
             comboBoxCourse.ValueMember = "id";
 
             //setear combo box null por defecto
-            comboBoxCourse.SelectedItem = null;
-            
+            comboBoxCourse.SelectedItem = null;           
+        }
+
+        //funcion para llenar el combobox y seleccionar el curso actual
+        public void fillCombo(int index)
+        {
+            comboBoxCourse.DataSource = course.getAllCourses();
+            comboBoxCourse.DisplayMember = "label";
+            comboBoxCourse.ValueMember = "id";
+
+            comboBoxCourse.SelectedIndex = index;
         }
 
         private void btnEditCourse_Click(object sender, EventArgs e)
@@ -41,11 +50,18 @@ namespace Student_System
                 string descr = textBoxDescription.Text;
                 int id = (int)comboBoxCourse.SelectedValue;
 
-                if (course.checkCourseName(name, id))
+                //verificar si el nombre esta en blanco
+                if (name.Trim() != "")
                 {
-                    if (course.updateCourse(id, name, hrs, descr))
+                    //confirmar si el nombre del curso existe y no es el actual usando el ID del curso actual
+                    if (!course.checkCourseName(name, id))
+                    {
+                        MessageBox.Show("This Course Name Already Exists", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else if (course.updateCourse(id, name, hrs, descr))
                     {
                         MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        fillCombo(comboBoxCourse.SelectedIndex);
                     }
                     else
                     {
@@ -54,7 +70,7 @@ namespace Student_System
                 }
                 else
                 {
-                    MessageBox.Show("This Course Name Already Exists", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Enter The Course Name", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
