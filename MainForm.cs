@@ -53,11 +53,6 @@ namespace Student_System
             prStdF.Show(this);
         }
 
-        private void Main_Form_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCourseForm addCrsF = new AddCourseForm();
@@ -74,6 +69,12 @@ namespace Student_System
         {
             EditCourseForm editCrsF = new EditCourseForm();
             editCrsF.Show(this);
+        }
+
+        private void manageCoursesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCoursesForm mngCrsF = new ManageCoursesForm();
+            mngCrsF.Show(this);
         }
     }
 }
