@@ -85,7 +85,7 @@
             this.textBoxPassword.TabIndex = 5;
             this.textBoxPassword.Text = "1234";
             this.textBoxPassword.UseSystemPasswordChar = true;
-            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+            //this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -133,7 +133,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Student System";
-            this.Load += new System.EventHandler(this.Login_Form_Load);
+            //this.Load += new System.EventHandler(this.Login_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

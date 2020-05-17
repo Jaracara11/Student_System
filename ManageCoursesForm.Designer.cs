@@ -40,7 +40,7 @@
             this.listBoxCourses = new System.Windows.Forms.ListBox();
             this.labelTotalCourses = new System.Windows.Forms.Label();
             this.btnAddCourse = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -71,6 +71,7 @@
             this.btnEditCourse.TabIndex = 35;
             this.btnEditCourse.Text = "Edit";
             this.btnEditCourse.UseVisualStyleBackColor = false;
+            this.btnEditCourse.Click += new System.EventHandler(this.btnEditCourse_Click);
             // 
             // numericUpDownHours
             // 
@@ -160,17 +161,18 @@
             this.listBoxCourses.ItemHeight = 25;
             this.listBoxCourses.Location = new System.Drawing.Point(501, 21);
             this.listBoxCourses.Name = "listBoxCourses";
-            this.listBoxCourses.Size = new System.Drawing.Size(204, 304);
+            this.listBoxCourses.Size = new System.Drawing.Size(161, 304);
             this.listBoxCourses.TabIndex = 38;
+            this.listBoxCourses.SelectedIndexChanged += new System.EventHandler(this.listBoxCourses_SelectedIndexChanged);
             // 
             // labelTotalCourses
             // 
             this.labelTotalCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(105)))), ((int)(((byte)(14)))));
-            this.labelTotalCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalCourses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotalCourses.ForeColor = System.Drawing.Color.White;
-            this.labelTotalCourses.Location = new System.Drawing.Point(545, 328);
+            this.labelTotalCourses.Location = new System.Drawing.Point(501, 328);
             this.labelTotalCourses.Name = "labelTotalCourses";
-            this.labelTotalCourses.Size = new System.Drawing.Size(160, 42);
+            this.labelTotalCourses.Size = new System.Drawing.Size(161, 42);
             this.labelTotalCourses.TabIndex = 39;
             this.labelTotalCourses.Text = "Total Courses:";
             this.labelTotalCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,19 +189,21 @@
             this.btnAddCourse.TabIndex = 40;
             this.btnAddCourse.Text = "Add";
             this.btnAddCourse.UseVisualStyleBackColor = false;
+            this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
             // 
-            // btnDelete
+            // btnRemove
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(255, 349);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 40);
-            this.btnDelete.TabIndex = 41;
-            this.btnDelete.Text = "Remove";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnRemove.BackColor = System.Drawing.Color.Crimson;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Location = new System.Drawing.Point(255, 349);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(101, 40);
+            this.btnRemove.TabIndex = 41;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnFirst
             // 
@@ -213,6 +217,7 @@
             this.btnFirst.TabIndex = 42;
             this.btnFirst.Text = "<<";
             this.btnFirst.UseVisualStyleBackColor = false;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // btnNext
             // 
@@ -226,6 +231,7 @@
             this.btnNext.TabIndex = 43;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -239,6 +245,7 @@
             this.btnPrevious.TabIndex = 44;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = false;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnLast
             // 
@@ -252,18 +259,19 @@
             this.btnLast.TabIndex = 45;
             this.btnLast.Text = ">>";
             this.btnLast.UseVisualStyleBackColor = false;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
             // ManageCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(201)))), ((int)(((byte)(169)))));
-            this.ClientSize = new System.Drawing.Size(725, 407);
+            this.ClientSize = new System.Drawing.Size(685, 407);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnFirst);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddCourse);
             this.Controls.Add(this.labelTotalCourses);
             this.Controls.Add(this.listBoxCourses);
@@ -302,7 +310,7 @@
         private System.Windows.Forms.ListBox listBoxCourses;
         private System.Windows.Forms.Label labelTotalCourses;
         private System.Windows.Forms.Button btnAddCourse;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
