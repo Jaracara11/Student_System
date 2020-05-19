@@ -45,11 +45,6 @@ namespace Student_System
             dataGridView1.AllowUserToAddRows = false;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void radioBtnNo_CheckedChanged(object sender, EventArgs e)
         {
             dateTimePicker1.Enabled = false;
@@ -119,7 +114,7 @@ namespace Student_System
         private void btnPrint_Click(object sender, EventArgs e)
         {
             //ruta del archivo
-            //nombre de archivo = students_list.pdf
+            //nombre de archivo = students_list.txt
             //ubicacion = desktop
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\stundents_list.txt";
 

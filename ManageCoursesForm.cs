@@ -179,6 +179,11 @@ namespace Student_System
                     {
                         MessageBox.Show("Course Deleted", "Remove Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         reloadListBoxData();
+                        //limpiar campos leugo del borrado
+                        textBoxID.Text = "";
+                        numericUpDownHours.Value = 10;
+                        textBoxLabel.Text = "";
+                        textBoxDescription.Text = "";
                     }
                     else
                     {
