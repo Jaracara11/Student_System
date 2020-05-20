@@ -45,7 +45,6 @@
             this.textBoxLabel.Name = "textBoxLabel";
             this.textBoxLabel.Size = new System.Drawing.Size(267, 26);
             this.textBoxLabel.TabIndex = 3;
-            //this.textBoxLabel.TextChanged += new System.EventHandler(this.textBoxLabel_TextChanged);
             // 
             // label1
             // 
@@ -139,7 +138,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxLabel);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddCourseForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

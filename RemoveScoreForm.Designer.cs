@@ -1,6 +1,6 @@
 ﻿namespace Student_System
 {
-    partial class PrintCoursesForm
+    partial class RemoveScoreForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,47 +29,48 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnRemoveScore = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(804, 379);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Size = new System.Drawing.Size(595, 284);
+            this.dataGridView1.TabIndex = 41;
             // 
-            // btnPrint
+            // btnRemoveScore
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.Color.Transparent;
-            this.btnPrint.Location = new System.Drawing.Point(10, 397);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(804, 60);
-            this.btnPrint.TabIndex = 19;
-            this.btnPrint.Text = "Print to Text";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnRemoveScore.BackColor = System.Drawing.Color.Red;
+            this.btnRemoveScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveScore.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveScore.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveScore.Location = new System.Drawing.Point(3, 286);
+            this.btnRemoveScore.Name = "btnRemoveScore";
+            this.btnRemoveScore.Size = new System.Drawing.Size(595, 46);
+            this.btnRemoveScore.TabIndex = 42;
+            this.btnRemoveScore.Text = "REMOVE SCORE";
+            this.btnRemoveScore.UseVisualStyleBackColor = false;
+            this.btnRemoveScore.Click += new System.EventHandler(this.btnRemoveScore_Click);
             // 
-            // PrintCoursesForm
+            // RemoveScoreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(826, 469);
-            this.Controls.Add(this.btnPrint);
+            this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.ClientSize = new System.Drawing.Size(602, 333);
+            this.Controls.Add(this.btnRemoveScore);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "PrintCoursesForm";
+            this.Name = "RemoveScoreForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Print Courses";
-            this.Load += new System.EventHandler(this.PrintCoursesForm_Load);
+            this.Text = "Remove Score";
+            this.Load += new System.EventHandler(this.RemoveScoreForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -78,6 +79,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnRemoveScore;
     }
 }

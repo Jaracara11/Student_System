@@ -91,12 +91,14 @@ namespace Student_System
 
         private void removeScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RemoveScoreForm rmvScrF = new RemoveScoreForm();
+            rmvScrF.Show(this);
         }
 
         private void manageScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ManageScoreForm mngScrF = new ManageScoreForm();
+            mngScrF.Show(this);
         }
 
         private void avgScoreByCourseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,5 +110,6 @@ namespace Student_System
         {
 
         }
+
     }
 }

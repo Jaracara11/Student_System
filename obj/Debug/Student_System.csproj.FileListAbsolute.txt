@@ -28,3 +28,5 @@ C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.csprojAssemb
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageCoursesForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.PrintCoursesForm.resources
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.AddScoreForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.RemoveScoreForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageScoreForm.resources

@@ -163,7 +163,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label6);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddScoreForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

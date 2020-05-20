@@ -91,6 +91,12 @@
     <Compile Include="ManageCoursesForm.Designer.cs">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageScoreForm.Designer.cs">
+      <DependentUpon>ManageScoreForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageStudentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,12 @@
     </Compile>
     <Compile Include="RemoveCourseForm.Designer.cs">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoveScoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemoveScoreForm.Designer.cs">
+      <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SCORE.cs" />
     <Compile Include="StaticsForm.cs">
@@ -158,6 +170,9 @@
     <EmbeddedResource Include="ManageCoursesForm.resx">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageScoreForm.resx">
+      <DependentUpon>ManageScoreForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageStudentsForm.resx">
       <DependentUpon>ManageStudentsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +193,9 @@
     </Compile>
     <EmbeddedResource Include="RemoveCourseForm.resx">
       <DependentUpon>RemoveCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoveScoreForm.resx">
+      <DependentUpon>RemoveScoreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StaticsForm.resx">
       <DependentUpon>StaticsForm.cs</DependentUpon>
