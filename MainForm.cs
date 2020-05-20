@@ -103,12 +103,14 @@ namespace Student_System
 
         private void avgScoreByCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AvgScoreByCourseForm avgScrByCrsF = new AvgScoreByCourseForm();
+            avgScrByCrsF.Show(this);
         }
 
         private void printToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
+            PrintScoresForm prScrF = new PrintScoresForm();
+            prScrF.Show(this);
         }
 
     }

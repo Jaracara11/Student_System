@@ -69,6 +69,7 @@
             this.btnAdd.TabIndex = 50;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // textBoxStudentID
             // 
@@ -163,6 +164,7 @@
             this.btnRemove.TabIndex = 51;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAvgCourse
             // 
@@ -176,6 +178,7 @@
             this.btnAvgCourse.TabIndex = 52;
             this.btnAvgCourse.Text = "AVG Score by Course";
             this.btnAvgCourse.UseVisualStyleBackColor = false;
+            this.btnAvgCourse.Click += new System.EventHandler(this.btnAvgCourse_Click);
             // 
             // label4
             // 

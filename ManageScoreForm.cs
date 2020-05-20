@@ -70,5 +70,65 @@ namespace Student_System
                 comboBoxCourse.SelectedValue = dataGridView1.CurrentRow.Cells[3].Value;
             }   
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //agregar nuevo score
+                int studentId = Convert.ToInt32(textBoxStudentID.Text);
+                int courseId = Convert.ToInt32(comboBoxCourse.SelectedValue);
+                double scoreValue = Convert.ToDouble(textBoxScore.Text);
+                string description = textBoxDescription.Text;
+
+                //funcion para verificar si un score ya fue asignado a un estudiante en el curso actual
+                if (score.studentScoreExists(studentId, courseId))
+                {
+                    if (score.insertScore(studentId, courseId, scoreValue, description))
+                    {
+                        MessageBox.Show("Student Score Inserted", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dataGridView1.DataSource = score.getStudentsScore();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Student Score Not Inserted", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The Score For This Course Is Already Set", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            //remover score seleccionado
+            int studentId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            int courseId = int.Parse(dataGridView1.CurrentRow.Cells[3].Value.ToString());
+
+            if (MessageBox.Show("Do you want to delete this score?", "Remove Score", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (score.deleteScore(studentId, courseId))
+                {
+                    MessageBox.Show("Score Deleted", "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = score.getStudentsScore();
+                }
+                else
+                {
+                    MessageBox.Show("Score Not Deleted", "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void btnAvgCourse_Click(object sender, EventArgs e)
+        {
+            AvgScoreByCourseForm avgScrByCrsF = new AvgScoreByCourseForm();
+            avgScrByCrsF.Show(this);
+        }
     }
 }
