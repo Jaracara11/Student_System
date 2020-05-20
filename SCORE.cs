@@ -93,5 +93,47 @@ namespace Student_System
                 return false;
             }
         }
+
+        //funcion para obtener promedio por curso
+        public DataTable avgScoreByCourse()
+        {
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = db.getConnection;
+            command.CommandText = ("SELECT course.label, avg(score.score) as 'Average Score' FROM course, score WHERE course.id = score.course_id GROUP BY course.label");
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
+
+        //funcion para obtener score de los cursos
+        public DataTable getCourseScores(int courseId)
+        {
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = db.getConnection;
+            command.CommandText = ("SELECT score.student_id, student.first_name, student.last_name, score.course_id, course.label, score.score FROM student INNER JOIN score ON student.id = score.student_id INNER JOIN course ON score.course_id = course.id WHERE score.course_id =" + courseId);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
+
+        //funcion para obtener score de los estudiantes
+        public DataTable getStudentScores(int studentId)
+        {
+            MySqlCommand command = new MySqlCommand();
+            command.Connection = db.getConnection;
+            command.CommandText = ("SELECT score.student_id, student.first_name, student.last_name, score.course_id, course.label, score.score FROM student INNER JOIN score ON student.id = score.student_id INNER JOIN course ON score.course_id = course.id WHERE score.course_id =" + studentId);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+
+            return table;
+        }
     }
 }

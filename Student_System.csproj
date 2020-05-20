@@ -65,6 +65,12 @@
     <Compile Include="AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AvgScoreByCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AvgScoreByCourseForm.Designer.cs">
+      <DependentUpon>AvgScoreByCourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="COURSE.cs" />
     <Compile Include="DefaultDB.cs" />
     <Compile Include="EditCourseForm.cs">
@@ -108,6 +114,12 @@
     </Compile>
     <Compile Include="PrintCoursesForm.Designer.cs">
       <DependentUpon>PrintCoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintScoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintScoresForm.Designer.cs">
+      <DependentUpon>PrintScoresForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintStudentsForm.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,9 @@
     <EmbeddedResource Include="AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AvgScoreByCourseForm.resx">
+      <DependentUpon>AvgScoreByCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrintCoursesForm.resx">
       <DependentUpon>PrintCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintScoresForm.resx">
+      <DependentUpon>PrintScoresForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintStudentsForm.resx">
       <DependentUpon>PrintStudentsForm.cs</DependentUpon>
