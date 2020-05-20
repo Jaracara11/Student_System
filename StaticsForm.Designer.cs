@@ -117,7 +117,7 @@
             this.Controls.Add(this.panelFemale);
             this.Controls.Add(this.panelMale);
             this.Controls.Add(this.panelTotal);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "StaticsForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -76,5 +76,40 @@ namespace Student_System
             ManageCoursesForm mngCrsF = new ManageCoursesForm();
             mngCrsF.Show(this);
         }
+
+        private void printToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            PrintCoursesForm prCrsF = new PrintCoursesForm();
+            prCrsF.Show(this);
+        }
+
+        private void addScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddScoreForm addScrF = new AddScoreForm();
+            addScrF.Show(this);
+        }
+
+        private void removeScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RemoveScoreForm rmvScrF = new RemoveScoreForm();
+            rmvScrF.Show(this);
+        }
+
+        private void manageScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageScoreForm mngScrF = new ManageScoreForm();
+            mngScrF.Show(this);
+        }
+
+        private void avgScoreByCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

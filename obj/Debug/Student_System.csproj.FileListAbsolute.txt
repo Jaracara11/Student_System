@@ -26,3 +26,7 @@ C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.exe
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.pdb
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.csprojAssemblyReference.cache
 C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageCoursesForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.PrintCoursesForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.AddScoreForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.RemoveScoreForm.resources
+C:\Users\under\source\repos\Student_System\obj\Debug\Student_System.ManageScoreForm.resources
