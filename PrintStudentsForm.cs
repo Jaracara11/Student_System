@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Student_System
 
         private void PrintStudentsForm_Load(object sender, EventArgs e)
         {
-            fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+            fillGrid(new SQLiteCommand("SELECT * FROM `student`"));
 
             if (radioBtnNo.Checked)
             {
@@ -33,13 +34,13 @@ namespace Student_System
         }
 
         //funcion llena el datagridview
-        public void fillGrid(MySqlCommand command)
+        public void fillGrid(SQLiteCommand command)
         {
             //cargar gridview con data de estudiantes
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 60;
-            dataGridView1.DataSource = student.getStudents(command);
+            dataGridView1.DataSource = student.GetStudents(command);
             picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridView1.AllowUserToAddRows = false;
@@ -62,7 +63,7 @@ namespace Student_System
             
             
             //visualizar data en el dgv dependiendo de que usuario sea seleccionado
-            MySqlCommand command;
+            SQLiteCommand command;
             string query;
 
             //chequear si el radiobtn YES esta seleccionado
@@ -86,7 +87,7 @@ namespace Student_System
                     query = "SELECT * FROM `student` WHERE `birthdate` BETWEEN '" + date1 + "' AND '" + date2 + "'";
                 }
 
-                command = new MySqlCommand(query);
+                command = new SQLiteCommand(query);
                 fillGrid(command);
             }
 
@@ -105,7 +106,7 @@ namespace Student_System
                     query = "SELECT * FROM `student`";
                 }
 
-                command = new MySqlCommand(query);
+                command = new SQLiteCommand(query);
                 fillGrid(command);
             }
         }

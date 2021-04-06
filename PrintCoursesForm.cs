@@ -23,7 +23,7 @@ namespace Student_System
         private void PrintCoursesForm_Load(object sender, EventArgs e)
         {
             //llenar dgv con los cursos
-            dataGridView1.DataSource = course.getAllCourses();
+            dataGridView1.DataSource = course.GetAllCourses();
             //evita que aparezca una fila adicional en el dgv
             dataGridView1.AllowUserToAddRows = false;
         }

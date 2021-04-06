@@ -22,7 +22,7 @@ namespace Student_System
         private void EditCourseForm_Load(object sender, EventArgs e)
         {
             //llenar combobox con los cursos
-            comboBoxCourse.DataSource = course.getAllCourses();
+            comboBoxCourse.DataSource = course.GetAllCourses();
             comboBoxCourse.DisplayMember = "label";
             comboBoxCourse.ValueMember = "id";
 
@@ -33,7 +33,7 @@ namespace Student_System
         //funcion para llenar el combobox y seleccionar el curso actual
         public void fillCombo(int index)
         {
-            comboBoxCourse.DataSource = course.getAllCourses();
+            comboBoxCourse.DataSource = course.GetAllCourses();
             comboBoxCourse.DisplayMember = "label";
             comboBoxCourse.ValueMember = "id";
 
@@ -54,11 +54,11 @@ namespace Student_System
                 if (name.Trim() != "")
                 {
                     //confirmar si el nombre del curso existe y no es el actual usando el ID del curso actual
-                    if (!course.checkCourseName(name, id))
+                    if (!course.CheckCourseName(name, id))
                     {
                         MessageBox.Show("This Course Name Already Exists", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (course.updateCourse(id, name, hrs, descr))
+                    else if (course.UpdateCourse(id, name, hrs, descr))
                     {
                         MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         fillCombo(comboBoxCourse.SelectedIndex);
@@ -86,7 +86,7 @@ namespace Student_System
                 //desplegar datos del curso seleccionado
                 int id = Convert.ToInt32(comboBoxCourse.SelectedValue);
                 DataTable table = new DataTable();
-                table = course.getCourseById(id);
+                table = course.GetCourseById(id);
                 textBoxLabel.Text = table.Rows[0][1].ToString();
                 numericUpDownHours.Value = Int32.Parse(table.Rows[0][2].ToString());
                 textBoxDescription.Text = table.Rows[0][3].ToString();

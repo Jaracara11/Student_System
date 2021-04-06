@@ -22,7 +22,7 @@ namespace Student_System
             //llenar dgv con el score promedio por curso
             SCORE score = new SCORE();
 
-            dataGridView1.DataSource = score.avgScoreByCourse();
+            dataGridView1.DataSource = score.AvgScoreByCourse();
         }
     }
 }

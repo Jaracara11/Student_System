@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,12 +29,10 @@ namespace Student_System
             //validacion de usuario y password login
             DefaultDB db = new DefaultDB();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter();
             DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `username` = @usn AND `password` = @pass", db.getConnection);
-
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = textBoxUsername.Text;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = textBoxPassword.Text;
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `users` WHERE `username` = '" + 
+                textBoxUsername.Text + "' AND `password` = '" + textBoxPassword.Text + "'", db.GetConnection);
 
             adapter.SelectCommand = command;
 
@@ -48,6 +47,5 @@ namespace Student_System
                 MessageBox.Show("Invalid Username or Password", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

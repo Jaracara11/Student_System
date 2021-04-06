@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,13 +27,13 @@ namespace Student_System
         private void PrintScoresForm_Load(object sender, EventArgs e)
         {
             //llenar dgv con datos de estudiantes
-            dataGridView1.DataSource = student.getStudents(new MySqlCommand("SELECT `id`, `first_name`, `last_name` FROM `student`"));
+            dataGridView1.DataSource = student.GetStudents(new SQLiteCommand("SELECT `id`, `first_name`, `last_name` FROM `student`"));
 
             //llenar dgv con datos de score
-            DataGridViewStudentsScore.DataSource = score.getStudentsScore();
+            DataGridViewStudentsScore.DataSource = score.GetStudentsScore();
 
             //llenar dgv con datos de cursos
-            listBoxCourses.DataSource = course.getAllCourses();
+            listBoxCourses.DataSource = course.GetAllCourses();
             listBoxCourses.DisplayMember = "label";
             listBoxCourses.ValueMember = "id";
 
@@ -41,19 +42,19 @@ namespace Student_System
         //cuando se seleccione un curso del listbox todos los scores asignados a ese curso se desplegaran
         private void listBoxCourses_Click(object sender, EventArgs e)
         {
-            DataGridViewStudentsScore.DataSource = score.getCourseScores(int.Parse(listBoxCourses.SelectedValue.ToString()));
+            DataGridViewStudentsScore.DataSource = score.GetCourseScores(int.Parse(listBoxCourses.SelectedValue.ToString()));
         }
 
         //desplegar el score del estudiante seleccionado
         private void dataGridView1_Click(object sender, EventArgs e)
         {
-            DataGridViewStudentsScore.DataSource = score.getCourseScores(int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            DataGridViewStudentsScore.DataSource = score.GetCourseScores(int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
         }
 
         private void labelReset_Click(object sender, EventArgs e)
         {
             //reset datos de los score
-            DataGridViewStudentsScore.DataSource = score.getStudentsScore();
+            DataGridViewStudentsScore.DataSource = score.GetStudentsScore();
         }
 
         //imprimir datos de scores del dgv a texto

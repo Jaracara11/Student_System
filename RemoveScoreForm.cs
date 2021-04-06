@@ -22,7 +22,7 @@ namespace Student_System
         private void RemoveScoreForm_Load(object sender, EventArgs e)
         {
             //llenar dgv con el score de los estudiantes
-            dataGridView1.DataSource = score.getStudentsScore();
+            dataGridView1.DataSource = score.GetStudentsScore();
         }
 
         private void btnRemoveScore_Click(object sender, EventArgs e)
@@ -33,10 +33,10 @@ namespace Student_System
 
             if (MessageBox.Show("Do you want to delete this score?", "Remove Score", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (score.deleteScore(studentId, courseId))
+                if (score.DeleteScore(studentId, courseId))
                 {
                     MessageBox.Show("Score Deleted", "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dataGridView1.DataSource = score.getStudentsScore();
+                    dataGridView1.DataSource = score.GetStudentsScore();
                 }
                 else
                 {

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,27 +27,27 @@ namespace Student_System
         private void ManageScoreForm_Load(object sender, EventArgs e)
         {
             //llenar combobox con los cursos
-            comboBoxCourse.DataSource = course.getAllCourses();
+            comboBoxCourse.DataSource = course.GetAllCourses();
             comboBoxCourse.DisplayMember = "label";
             comboBoxCourse.ValueMember = "id";
 
             //llenar dgv con el score de los estudiantes
-            dataGridView1.DataSource = score.getStudentsScore();
+            dataGridView1.DataSource = score.GetStudentsScore();
         }
 
         //mostrar datos de estudiantes en dgv
         private void btnShowStudents_Click(object sender, EventArgs e)
         {
             data = "student";
-            MySqlCommand command = new MySqlCommand("SELECT `id`, `first_name`, `last_name`, `birthdate` FROM `student`");
-            dataGridView1.DataSource = student.getStudents(command);
+            SQLiteCommand command = new SQLiteCommand("SELECT `id`, `first_name`, `last_name`, `birthdate` FROM `student`");
+            dataGridView1.DataSource = student.GetStudents(command);
         }
 
         //mostrar score en dgv
         private void btnShowScores_Click(object sender, EventArgs e)
         {
             data = "score";
-            dataGridView1.DataSource = score.getStudentsScore();
+            dataGridView1.DataSource = score.GetStudentsScore();
         }
 
         //obtener datos del dgv
@@ -82,12 +83,12 @@ namespace Student_System
                 string description = textBoxDescription.Text;
 
                 //funcion para verificar si un score ya fue asignado a un estudiante en el curso actual
-                if (score.studentScoreExists(studentId, courseId))
+                if (score.StudentScoreExists(studentId, courseId))
                 {
-                    if (score.insertScore(studentId, courseId, scoreValue, description))
+                    if (score.InsertScore(studentId, courseId, scoreValue, description))
                     {
                         MessageBox.Show("Student Score Inserted", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dataGridView1.DataSource = score.getStudentsScore();
+                        dataGridView1.DataSource = score.GetStudentsScore();
                     }
                     else
                     {
@@ -113,10 +114,10 @@ namespace Student_System
 
             if (MessageBox.Show("Do you want to delete this score?", "Remove Score", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (score.deleteScore(studentId, courseId))
+                if (score.DeleteScore(studentId, courseId))
                 {
                     MessageBox.Show("Score Deleted", "Remove Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dataGridView1.DataSource = score.getStudentsScore();
+                    dataGridView1.DataSource = score.GetStudentsScore();
                 }
                 else
                 {

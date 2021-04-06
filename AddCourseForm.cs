@@ -29,9 +29,9 @@ namespace Student_System
             {
                 MessageBox.Show("Add a Course Name", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if(course.checkCourseName(courseLabel))
+            else if(course.CheckCourseName(courseLabel))
             {
-                if (course.insertCourse(courseLabel, hours, description))
+                if (course.InsertCourse(courseLabel, hours, description))
                 {
                     MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

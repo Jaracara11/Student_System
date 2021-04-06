@@ -23,13 +23,13 @@ namespace Student_System
 
         private void ManageCoursesForm_Load(object sender, EventArgs e)
         {
-            reloadListBoxData();
+            ReloadListBoxData();
         }
 
         //funcion que carga el listbox con los cursos
-        public void reloadListBoxData()
+        public void ReloadListBoxData()
         {
-            listBoxCourses.DataSource = course.getAllCourses();
+            listBoxCourses.DataSource = course.GetAllCourses();
             listBoxCourses.ValueMember = "id";
             listBoxCourses.DisplayMember = "label";
 
@@ -37,13 +37,13 @@ namespace Student_System
             listBoxCourses.SelectedItem = null;
 
             //desplegar el total de cursos
-            labelTotalCourses.Text = "Total Courses: " + course.totalCourses();
+            labelTotalCourses.Text = "Total Courses: " + course.TotalCourses();
         }
 
         //funcion para desplegar datos del curso dependiendo del indice
-        public void showData(int index)
+        public void ShowData(int index)
         {
-            DataRow dr = course.getAllCourses().Rows[index];
+            DataRow dr = course.GetAllCourses().Rows[index];
 
             //sombrea el curso marcado
             listBoxCourses.SelectedIndex = index;
@@ -60,7 +60,7 @@ namespace Student_System
             {
                 //desplegar datos del curso seleccionado
                 pos = listBoxCourses.SelectedIndex;
-                showData(pos);
+                ShowData(pos);
             }
             catch { }
         }
@@ -69,15 +69,15 @@ namespace Student_System
         private void btnFirst_Click(object sender, EventArgs e)
         {
             pos = 0;
-            showData(0);
+            ShowData(0);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (pos < (course.getAllCourses().Rows.Count - 1))
+            if (pos < (course.GetAllCourses().Rows.Count - 1))
             {
                 pos = pos + 1;
-                showData(pos);
+                ShowData(pos);
             }
             
         }
@@ -87,15 +87,15 @@ namespace Student_System
             if (pos > 0)
             {
                 pos = pos - 1;
-                showData(pos);
+                ShowData(pos);
             }
             
         }
 
         private void btnLast_Click(object sender, EventArgs e)
         {
-            pos = course.getAllCourses().Rows.Count - 1;
-            showData(pos);
+            pos = course.GetAllCourses().Rows.Count - 1;
+            ShowData(pos);
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
@@ -108,12 +108,12 @@ namespace Student_System
             {
                 MessageBox.Show("Add a Course Name", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (course.checkCourseName(courseLabel))
+            else if (course.CheckCourseName(courseLabel))
             {
-                if (course.insertCourse(courseLabel, hours, description))
+                if (course.InsertCourse(courseLabel, hours, description))
                 {
                     MessageBox.Show("New Course Inserted", "Add Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    reloadListBoxData();
+                    ReloadListBoxData();
                 }
                 else
                 {
@@ -140,14 +140,14 @@ namespace Student_System
                 if (name.Trim() != "")
                 {
                     //confirmar si el nombre del curso existe y no es el actual usando el ID del curso actual
-                    if (!course.checkCourseName(name, id))
+                    if (!course.CheckCourseName(name, id))
                     {
                         MessageBox.Show("This Course Name Already Exists", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (course.updateCourse(id, name, hrs, descr))
+                    else if (course.UpdateCourse(id, name, hrs, descr))
                     {
                         MessageBox.Show("Course Updated", "Edit Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reloadListBoxData();
+                        ReloadListBoxData();
                     }
                     else
                     {
@@ -175,10 +175,10 @@ namespace Student_System
 
                 if (MessageBox.Show("Do you want to remove this course", "Delete Course", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (course.deleteCourse(courseId))
+                    if (course.DeleteCourse(courseId))
                     {
                         MessageBox.Show("Course Deleted", "Remove Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        reloadListBoxData();
+                        ReloadListBoxData();
                         //limpiar campos leugo del borrado
                         textBoxID.Text = "";
                         numericUpDownHours.Value = 10;

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,39 +13,33 @@ namespace Student_System
     {
         DefaultDB db = new DefaultDB();
 
-        public bool insertCourse(string courseName, int hoursNumber, string description)
+        public bool InsertCourse(string courseName, int hoursNumber, string description)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `course`(`label`, `hours_number`, `description`) VALUES (@name, @hrs, @dscr)", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO course(label, hours_number, description) VALUES " +
+                "('" + courseName + "','" + hoursNumber + "','" + description + "')", db.GetConnection);
 
-            //@name, @hrs, @dscr
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = courseName;
-            command.Parameters.Add("@hrs", MySqlDbType.Int32).Value = hoursNumber;
-            command.Parameters.Add("@dscr", MySqlDbType.Text).Value = description;
+            db.OpenConnection();
 
-            db.openConnection();
-
-            if(command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion para verificar si el curso ya existe en la db
         //excluir los cursos de la verificacion cuando los editemos
-        public bool checkCourseName(string courseName, int courseId = 0)
-        {           
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `course` WHERE `label` = @cName AND id <> @cid", db.getConnection);
+        public bool CheckCourseName(string courseName, int courseId = 0)
+        {
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `course` WHERE `label` = '" + courseName +
+                "' AND id != '" + courseId + "'", db.GetConnection);
 
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
-            command.Parameters.Add("@cName", MySqlDbType.VarChar).Value = courseName;
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
 
             DataTable table = new DataTable();
 
@@ -52,44 +47,43 @@ namespace Student_System
 
             if (table.Rows.Count > 0)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 //devuelve false si el curso ya existe
                 return false;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
         }
 
         //funcion para remover curso por ID
-        public bool deleteCourse(int courseId)
+        public bool DeleteCourse(int courseId)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM `course` WHERE `id` = @CID", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("DELETE FROM `course` WHERE `id` = '" + courseId +
+                "'", db.GetConnection);
 
-            command.Parameters.Add("@CID", MySqlDbType.Int32).Value = courseId;
+            db.OpenConnection();
 
-            db.openConnection();
-
-            if(command.ExecuteNonQuery() == 1)
+            if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion para obtener todos los cursos
-        public DataTable getAllCourses()
+        public DataTable GetAllCourses()
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `course`", db.getConnection);
-           
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `course`", db.GetConnection);
+
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
 
             DataTable table = new DataTable();
 
@@ -99,13 +93,11 @@ namespace Student_System
         }
 
         //funcion para obtener un curso por ID
-        public DataTable getCourseById(int courseID)
+        public DataTable GetCourseById(int courseId)
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `course` WHERE id = @cid", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `course` WHERE id = '" + courseId + "'", db.GetConnection);
 
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseID;
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
 
             DataTable table = new DataTable();
 
@@ -115,46 +107,42 @@ namespace Student_System
         }
 
         //funcion para editar curso seleccionado
-        public bool updateCourse(int courseId, string courseName, int hoursNumber, string description)
+        public bool UpdateCourse(int courseId, string courseName, int hoursNumber, string description)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `course` SET `label` = @name, `hours_number` = @hrs, `description` = @dscr WHERE `id` = @cid", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("UPDATE `course` SET `label` = '" + courseName +
+                "' `hours_number` = '" + hoursNumber + "', `description` = '" + description +
+                "' WHERE `id` ='" + courseId + "'", db.GetConnection);
 
-            //@cid, @name, @hrs, @dscr
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
-            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = courseName;
-            command.Parameters.Add("@hrs", MySqlDbType.Int32).Value = hoursNumber;
-            command.Parameters.Add("@dscr", MySqlDbType.VarChar).Value = description;
-
-            db.openConnection();
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion ejecutar conteo queries
-        public string execCount(string query)
+        public string ExecCount(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, db.getConnection);
+            SQLiteCommand command = new SQLiteCommand(query, db.GetConnection);
 
-            db.openConnection();
+            db.OpenConnection();
             string count = command.ExecuteScalar().ToString();
-            db.closeConnection();
+            db.CloseConnection();
 
             return count;
         }
 
         //obtener total de cursos
-        public string totalCourses()
+        public string TotalCourses()
         {
-            return execCount("SELECT COUNT(*) FROM `course`");
+            return ExecCount("SELECT COUNT(*) FROM `course`");
         }
     }
 }

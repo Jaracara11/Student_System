@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,13 +26,13 @@ namespace Student_System
         private void AddScoreForm_Load(object sender, EventArgs e)
         {
             //llenar combobox con el nombre de los cursos
-            comboBoxCourse.DataSource = course.getAllCourses();
+            comboBoxCourse.DataSource = course.GetAllCourses();
             comboBoxCourse.DisplayMember = "label";
             comboBoxCourse.ValueMember = "id";
 
             //llenar dgv con datos de los estudiantes (id, nombre, apellido)
-            MySqlCommand command = new MySqlCommand("SELECT `id`, `first_name`, `last_name` FROM `student`");
-            dataGridView1.DataSource = student.getStudents(command);
+            SQLiteCommand command = new SQLiteCommand("SELECT `id`, `first_name`, `last_name` FROM `student`");
+            dataGridView1.DataSource = student.GetStudents(command);
         }
 
         private void dataGridView1_Click(object sender, EventArgs e)
@@ -51,9 +52,9 @@ namespace Student_System
                 string description = textBoxDescription.Text;
 
                 //funcion para verificar si un score ya fue asignado a un estudiante en el curso actual
-                if (score.studentScoreExists(studentId, courseId))
+                if (score.StudentScoreExists(studentId, courseId))
                 {
-                    if (score.insertScore(studentId, courseId, scoreValue, description))
+                    if (score.InsertScore(studentId, courseId, scoreValue, description))
                     {
                         MessageBox.Show("Student Score Inserted", "Add Score", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

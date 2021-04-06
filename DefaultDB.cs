@@ -5,16 +5,17 @@ using System.Text;
 using System.Data;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data.SQLite;
 
 namespace Student_System
 {
     class DefaultDB
     {
         //instanciamos la conexion a la db
-        private MySqlConnection conn = new MySqlConnection("datasource=localhost;port=3306;username=root;password=1234;database=studentsdb");
+        private SQLiteConnection conn = new SQLiteConnection(@"datasource=C:\Users\u29230\Documents\Visual Studio 2019\studentsDB.db");
 
         //funcion que devuelve la conexion
-        public MySqlConnection getConnection
+        public SQLiteConnection GetConnection
         {
             get
             {
@@ -23,7 +24,7 @@ namespace Student_System
         }
 
         //funcion abre la conexion
-        public void openConnection()
+        public void OpenConnection()
         {
             if(conn.State == ConnectionState.Closed)
             {
@@ -32,7 +33,7 @@ namespace Student_System
         }
 
         //funcion cierra la conexion
-        public void closeConnection()
+        public void CloseConnection()
         {
             if (conn.State == ConnectionState.Open)
             {

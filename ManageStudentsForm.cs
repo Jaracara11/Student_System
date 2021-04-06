@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -25,16 +26,16 @@ namespace Student_System
         private void ManageStudentsForm_Load(object sender, EventArgs e)
         {
             //llenar datagridview con informacion de estudiantes
-            fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+            fillGrid(new SQLiteCommand("SELECT * FROM `student`"));
         }
 
         //funcion llena el datagridview
-        public void fillGrid(MySqlCommand command)
+        public void fillGrid(SQLiteCommand command)
         {
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 60;
-            dataGridView1.DataSource = student.getStudents(command);
+            dataGridView1.DataSource = student.GetStudents(command);
 
             picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -89,7 +90,7 @@ namespace Student_System
         {
             //codigo para busqueda de estudiantes
             string query = "SELECT * FROM `student` WHERE CONCAT(`first_name`, `last_name`, `address`) LIKE'%" + textBoxSearch.Text +"%'";
-            MySqlCommand command = new MySqlCommand(query);
+            SQLiteCommand command = new SQLiteCommand(query);
             fillGrid(command);
         }
 
@@ -173,7 +174,7 @@ namespace Student_System
                 if (student.insertStudent(fname, lname, bdate, phone, gender, address, pic))
                 {
                     MessageBox.Show("New Student Added", "Add Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                    fillGrid(new SQLiteCommand("SELECT * FROM `student`"));
                 }
                 else
                 {
@@ -223,10 +224,10 @@ namespace Student_System
                 {
                     pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
 
-                    if (student.updateStudent(id, fname, lname, bdate, phone, gender, address, pic))
+                    if (student.UpdateStudent(id, fname, lname, bdate, phone, gender, address, pic))
                     {
                         MessageBox.Show("Student Information Updated", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                        fillGrid(new SQLiteCommand("SELECT * FROM `student`"));
                     }
                     else
                     {
@@ -255,11 +256,11 @@ namespace Student_System
                 //mostrar mensaje de confirmacion borrado
                 if (MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (student.deleteStudent(id))
+                    if (student.DeleteStudent(id))
                     {
                         MessageBox.Show("Student Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //la linea "fillGrid" es para que se actualice el gv al modificarlo
-                        fillGrid(new MySqlCommand("SELECT * FROM `student`"));
+                        fillGrid(new SQLiteCommand("SELECT * FROM `student`"));
                         //limpiar campos
                         textBoxID.Text = "";
                         textBoxFname.Text = "";

@@ -27,7 +27,7 @@ namespace Student_System
 
                 if (MessageBox.Show("Do you want to remove this course", "Delete Course", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (course.deleteCourse(courseId))
+                    if (course.DeleteCourse(courseId))
                     {
                         MessageBox.Show("Course Deleted", "Remove Course", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

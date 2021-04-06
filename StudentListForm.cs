@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -25,11 +26,11 @@ namespace Student_System
         private void StudentList_Form_Load(object sender, EventArgs e)
         {
             //cargar gridview con data de estudiantes
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `student`");
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `student`");
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 60;
-            dataGridView1.DataSource = student.getStudents(command);
+            dataGridView1.DataSource = student.GetStudents(command);
             picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridView1.AllowUserToAddRows = false;
@@ -64,11 +65,11 @@ namespace Student_System
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             //refrescar datagridview
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `student`");
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `student`");
             dataGridView1.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGridView1.RowTemplate.Height = 60;
-            dataGridView1.DataSource = student.getStudents(command);
+            dataGridView1.DataSource = student.GetStudents(command);
             picCol = (DataGridViewImageColumn)dataGridView1.Columns[7];
             picCol.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridView1.AllowUserToAddRows = false;

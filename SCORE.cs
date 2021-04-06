@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,38 +14,32 @@ namespace Student_System
         DefaultDB db = new DefaultDB();
 
         //funcion para insertar nuevo score
-        public bool insertScore(int studentId, int courseId, double score, string description)
+        public bool InsertScore(int studentId, int courseId, double score, string description)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `score`(`student_id`, `course_id`, `score`, `description`) VALUES (@sid, @cid, @scr, @dscr)", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO score(student_id, course_id, score, description) " +
+                "VALUES ('" + studentId + "','" + courseId + "', '" + score + "', '" + description + "')", db.GetConnection);
 
-            command.Parameters.Add("@sid", MySqlDbType.Int32).Value = studentId;
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
-            command.Parameters.Add("@scr", MySqlDbType.Double).Value = score;
-            command.Parameters.Add("@dscr", MySqlDbType.VarChar).Value = description;
-
-            db.openConnection();
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion para verificar si un score ya fue asignado a un estudiante en el curso actual
-        public bool studentScoreExists(int studentId, int courseId)
+        public bool StudentScoreExists(int studentId, int courseId)
         {
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `score` WHERE `student_id` = @sid AND `course_id` = @cid", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("SELECT * FROM `score` WHERE `student_id` = '" + 
+                studentId + "' AND `course_id` = '" + courseId + "'", db.GetConnection);
 
-            command.Parameters.Add("@sid", MySqlDbType.Int32).Value = studentId;
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -59,13 +54,13 @@ namespace Student_System
         }
 
         //funcion para obtener score de los estudiantes
-        public DataTable getStudentsScore()
+        public DataTable GetStudentsScore()
         {
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = db.getConnection;
+            SQLiteCommand command = new SQLiteCommand();
+            command.Connection = db.GetConnection;
             command.CommandText = ("SELECT score.student_id, student.first_name, student.last_name, score.course_id, course.label, score.score FROM student INNER JOIN score ON student.id = score.student_id INNER JOIN course ON score.course_id = course.id");
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -73,35 +68,33 @@ namespace Student_System
         }
 
         //funcion para remover score por ID del estudiante y del curso
-        public bool deleteScore(int studentId, int courseId)
+        public bool DeleteScore(int studentId, int courseId)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM `score` WHERE `student_id` = @sid AND `course_id` = @cid", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("DELETE FROM `score` WHERE `student_id` = " +
+                "'" + studentId + "' AND `course_id` = '" + courseId + "'", db.GetConnection);
 
-            command.Parameters.Add("@sid", MySqlDbType.Int32).Value = studentId;
-            command.Parameters.Add("@cid", MySqlDbType.Int32).Value = courseId;
-
-            db.openConnection();
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion para obtener promedio por curso
-        public DataTable avgScoreByCourse()
+        public DataTable AvgScoreByCourse()
         {
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = db.getConnection;
+            SQLiteCommand command = new SQLiteCommand();
+            command.Connection = db.GetConnection;
             command.CommandText = ("SELECT course.label, avg(score.score) as 'Average Score' FROM course, score WHERE course.id = score.course_id GROUP BY course.label");
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -109,13 +102,13 @@ namespace Student_System
         }
 
         //funcion para obtener score de los cursos
-        public DataTable getCourseScores(int courseId)
+        public DataTable GetCourseScores(int courseId)
         {
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = db.getConnection;
+            SQLiteCommand command = new SQLiteCommand();
+            command.Connection = db.GetConnection;
             command.CommandText = ("SELECT score.student_id, student.first_name, student.last_name, score.course_id, course.label, score.score FROM student INNER JOIN score ON student.id = score.student_id INNER JOIN course ON score.course_id = course.id WHERE score.course_id =" + courseId);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -123,13 +116,13 @@ namespace Student_System
         }
 
         //funcion para obtener score de los estudiantes
-        public DataTable getStudentScores(int studentId)
+        public DataTable GetStudentScores(int studentId)
         {
-            MySqlCommand command = new MySqlCommand();
-            command.Connection = db.getConnection;
+            SQLiteCommand command = new SQLiteCommand();
+            command.Connection = db.GetConnection;
             command.CommandText = ("SELECT score.student_id, student.first_name, student.last_name, score.course_id, course.label, score.score FROM student INNER JOIN score ON student.id = score.student_id INNER JOIN course ON score.course_id = course.id WHERE score.course_id =" + studentId);
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 

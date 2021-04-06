@@ -31,9 +31,9 @@ namespace Student_System
 
             //desplegar los valores
             STUDENT student = new STUDENT();
-            double totalStudents = Convert.ToDouble(student.totalStudents());
-            double totalMaleStudent = Convert.ToDouble(student.totalMaleStudents());
-            double totalFemaleStudent = Convert.ToDouble(student.totalFemaleStudents());
+            double totalStudents = Convert.ToDouble(student.TotalStudents());
+            double totalMaleStudent = Convert.ToDouble(student.TotalMaleStudents());
+            double totalFemaleStudent = Convert.ToDouble(student.TotalFemaleStudents());
 
             //contar % de estudiantes
             double malePercentage = totalMaleStudent * 100 / totalStudents;

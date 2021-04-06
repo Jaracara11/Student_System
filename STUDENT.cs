@@ -1,11 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
+using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Student_System
 {
@@ -14,39 +10,33 @@ namespace Student_System
         DefaultDB db = new DefaultDB();
 
         //funcion agregar estudiantes a la db
-        public bool insertStudent(string fname, string lname, DateTime bdate, string phone, string gender, string address, MemoryStream picture)
+        public bool insertStudent(string fname, string lname, DateTime bdate, 
+            string phone, string gender, string address, MemoryStream picture)
         {
-            MySqlCommand command = new MySqlCommand("INSERT INTO `studentsdb`.`student` (`first_name`, `last_name`, `birthdate`, `gender`, `phone`, `address`, `picture`) VALUES (@fn, @ln, @bdt, @gdr, @phn, @adr, @pic)", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("INSERT INTO `studentsDB`.`student` " +
+                "(first_name, last_name, birthdate, gender, phone, address, picture) " +
+                "VALUES ('" + fname + "', '" + lname + "', '" + bdate + "', '" + phone + "'" +
+                ", '" + gender + "', '" + address + "', '" + picture + "')", db.GetConnection);
 
-            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
-            command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
-            command.Parameters.Add("@bdt", MySqlDbType.Date).Value = bdate;
-            command.Parameters.Add("@gdr", MySqlDbType.VarChar).Value = gender;
-            command.Parameters.Add("@phn", MySqlDbType.VarChar).Value = phone;
-            command.Parameters.Add("@adr", MySqlDbType.Text).Value = address;
-            command.Parameters.Add("@pic", MySqlDbType.Blob).Value = picture.ToArray();
-
-            db.openConnection();
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
-            
-
         }
 
         //funcion retornar tabla con data de estudiantes
-        public DataTable getStudents(MySqlCommand command)
+        public DataTable GetStudents(SQLiteCommand command)
         {
-            command.Connection = db.getConnection;
-            MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+            command.Connection = db.GetConnection;
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
             DataTable table = new DataTable();
             adapter.Fill(table);
 
@@ -54,84 +44,75 @@ namespace Student_System
         }
 
         //funcion actualizar informacion de estudiantes
-        public bool updateStudent(int id, string fname, string lname, DateTime bdate, string phone, string gender, string address, MemoryStream picture)
+        public bool UpdateStudent(int id, string fname, string lname, DateTime bdate, string phone, string gender, string address, MemoryStream picture)
         {
-            MySqlCommand command = new MySqlCommand("UPDATE `student` SET `first_name` = @fn, `last_name` = @ln, `birthdate` = @bdt, `gender` = @gdr, `phone` = @phn, `address` = @adr, `picture` = @pic WHERE `id` = @ID", db.getConnection);
+            SQLiteCommand command = new SQLiteCommand("UPDATE `student` SET `first_name` = '" + 
+                fname + "', `last_name` = '" + lname + "', `birthdate` = '" + 
+                bdate + "', `gender` = '" + gender + "', `phone` = '" + phone + "', `address` = '" + 
+                address + "', `picture` = '" + picture + "' WHERE `id` = '" + id + "'", db.GetConnection);
 
-            //@ID, @fn, @ln, @bdt, @gdr, phn, @adr, @pic
-            command.Parameters.Add("@ID", MySqlDbType.Int32).Value = id;
-            command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = fname;
-            command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = lname;
-            command.Parameters.Add("@bdt", MySqlDbType.Date).Value = bdate;
-            command.Parameters.Add("@gdr", MySqlDbType.VarChar).Value = gender;
-            command.Parameters.Add("@phn", MySqlDbType.VarChar).Value = phone;
-            command.Parameters.Add("@adr", MySqlDbType.Text).Value = address;
-            command.Parameters.Add("@pic", MySqlDbType.Blob).Value = picture.ToArray();
-
-            db.openConnection();
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
 
         }
 
         //funcion borrar estudiante seleccionado
-        public bool deleteStudent(int id)
+        public bool DeleteStudent(int id)
         {
-            MySqlCommand command = new MySqlCommand("DELETE FROM `student` WHERE `id` = @studentID", db.getConnection);
-
-            command.Parameters.Add("@studentID", MySqlDbType.Int32).Value = id;
-            
-            db.openConnection();
+            SQLiteCommand command = new SQLiteCommand("DELETE FROM `student` WHERE `id` = '" + id +"'", db.GetConnection);
+           
+            db.OpenConnection();
 
             if (command.ExecuteNonQuery() == 1)
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return true;
             }
             else
             {
-                db.closeConnection();
+                db.CloseConnection();
                 return false;
             }
         }
 
         //funcion ejecutar conteo queries
-        public string execCount(string query)
+        public string ExecCount(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, db.getConnection);
+            SQLiteCommand command = new SQLiteCommand(query, db.GetConnection);
 
-            db.openConnection();
+            db.OpenConnection();
             string count = command.ExecuteScalar().ToString();
-            db.closeConnection();
+            db.CloseConnection();
 
             return count;
         }
 
         //obtener total de estudiantes
-        public string totalStudents()
+        public string TotalStudents()
         {
-            return execCount("SELECT COUNT(*) FROM `student`");
+            return ExecCount("SELECT COUNT(*) FROM `student`");
         }
 
         //obtener total de estudiantes varones
-        public string totalMaleStudents()
+        public string TotalMaleStudents()
         {
-            return execCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Male'");
+            return ExecCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Male'");
         }
 
         //obtener total de estudiantes femeninas
-        public string totalFemaleStudents()
+        public string TotalFemaleStudents()
         {
-            return execCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Female'");
+            return ExecCount("SELECT COUNT(*) FROM `student` WHERE `gender` = 'Female'");
         }
 
     }

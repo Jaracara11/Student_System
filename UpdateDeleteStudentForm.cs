@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -86,7 +87,7 @@ namespace Student_System
                 {
                     pictureBoxStudent.Image.Save(pic, pictureBoxStudent.Image.RawFormat);
 
-                    if (student.updateStudent(id, fname, lname, bdate, phone, gender, address, pic))
+                    if (student.UpdateStudent(id, fname, lname, bdate, phone, gender, address, pic))
                     {
                         MessageBox.Show("Student Information Updated", "Edit Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -116,7 +117,7 @@ namespace Student_System
                 //mostrar mensaje de confirmacion borrado
                 if (MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (student.deleteStudent(id))
+                    if (student.DeleteStudent(id))
                     {
                         MessageBox.Show("Student Deleted", "Delete Student", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         //limpiar campos
@@ -147,9 +148,9 @@ namespace Student_System
             try
             {
                 int id = Convert.ToInt32(textBoxID.Text);
-                MySqlCommand command = new MySqlCommand("SELECT `id`, `first_name`, `last_name`, `birthdate`, `gender`, `phone`, `address`, `picture` FROM `student` WHERE `id` =" + id);
+                SQLiteCommand command = new SQLiteCommand("SELECT `id`, `first_name`, `last_name`, `birthdate`, `gender`, `phone`, `address`, `picture` FROM `student` WHERE `id` =" + id);
 
-                DataTable table = student.getStudents(command);
+                DataTable table = student.GetStudents(command);
 
                 if (table.Rows.Count > 0)
                 {
